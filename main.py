@@ -154,7 +154,7 @@ button_frame.pack(pady=10)
 
 # defining the button style
 style = ttk.Style()
-style.configure('RoundedButton.TButton', padding=20, font=("Titillium Web", 14), relief="raised")
+style.configure('RoundedButton.TButton', padding=6, font=("Titillium Web", 14), relief="raised")
 style.map('RoundedButton.TButton', relief=[('active', 'solid')])
 style.layout('RoundedButton.TButton', [('Button.button', {'children': [('Button.focus', {'children': [('Button.padding', {'children': [('Button.label', {'side': 'top', 'sticky': 'nswe'})]})]})]})])
 
