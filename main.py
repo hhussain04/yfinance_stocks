@@ -155,10 +155,8 @@ button_frame.pack(pady=10)
 # defining the button style
 style = ttk.Style()
 style.configure('RoundedButton.TButton', padding=6, font=("Titillium Web", 14), relief="raised")
-style.map('RoundedButton.TButton', relief=[('active', 'solid')])
-style.layout('RoundedButton.TButton', [('Button.button', {'children': [('Button.focus', {'children': [('Button.padding', {'children': [('Button.label', {'side': 'top', 'sticky': 'nswe'})]})]})]})])
 
-# adds, removes and displays tickers
+# buttons to add, clear and display current tickers
 btn_add_ticker = ttk.Button(button_frame, text="Add Ticker", command=add_ticker, style="RoundedButton.TButton")
 btn_add_ticker.grid(row=0, column=0, padx=10, pady=10)
 
@@ -168,24 +166,28 @@ btn_view_tickers.grid(row=0, column=1, padx=10, pady=10)
 btn_clear_tickers = ttk.Button(button_frame, text="Clear Tickers", command=clear_tickers, style="RoundedButton.TButton")
 btn_clear_tickers.grid(row=0, column=2, padx=10, pady=10)
 
-# places the buttons that display the graphs within the grid
-btn_3mo = ttk.Button(button_frame, text="Show 3 Month", command=lambda: show_graph('3mo'), style="RoundedButton.TButton")
+# separate frame for period selection buttons
+period_frame = tk.Frame(root, bg="black")
+period_frame.pack(pady=10)
+
+# actual period selection buttons
+btn_3mo = ttk.Button(period_frame, text="Show 3 Month", command=lambda: show_graph('3mo'), style="RoundedButton.TButton")
 btn_3mo.grid(row=1, column=0, padx=10, pady=10)
 
-btn_6mo = ttk.Button(button_frame, text="Show 6 Month", command=lambda: show_graph('6mo'), style="RoundedButton.TButton")
+btn_6mo = ttk.Button(period_frame, text="Show 6 Month", command=lambda: show_graph('6mo'), style="RoundedButton.TButton")
 btn_6mo.grid(row=1, column=1, padx=10, pady=10)
 
-btn_1y = ttk.Button(button_frame, text="Show 1 Year", command=lambda: show_graph('1y'), style="RoundedButton.TButton")
+btn_1y = ttk.Button(period_frame, text="Show 1 Year", command=lambda: show_graph('1y'), style="RoundedButton.TButton")
 btn_1y.grid(row=1, column=2, padx=10, pady=10)
 
-btn_5y = ttk.Button(button_frame, text="Show 5 Year", command=lambda: show_graph('5y'), style="RoundedButton.TButton")
+btn_5y = ttk.Button(period_frame, text="Show 5 Year", command=lambda: show_graph('5y'), style="RoundedButton.TButton")
 btn_5y.grid(row=1, column=3, padx=10, pady=10)
 
-btn_10y = ttk.Button(button_frame, text="Show 10 Year", command=lambda: show_graph('10y'), style="RoundedButton.TButton")
+btn_10y = ttk.Button(period_frame, text="Show 10 Year", command=lambda: show_graph('10y'), style="RoundedButton.TButton")
 btn_10y.grid(row=1, column=4, padx=10, pady=10)
 
-btn_max = ttk.Button(button_frame, text="Show Max", command=lambda: show_graph('max'), style="RoundedButton.TButton")
+btn_max = ttk.Button(period_frame, text="Show Max", command=lambda: show_graph('max'), style="RoundedButton.TButton")
 btn_max.grid(row=1, column=5, padx=10, pady=10)
 
-# starts the main loop
+# begins the main loop
 root.mainloop()
