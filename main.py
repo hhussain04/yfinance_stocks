@@ -158,6 +158,16 @@ style.configure('RoundedButton.TButton', padding=20, font=("Titillium Web", 14),
 style.map('RoundedButton.TButton', relief=[('active', 'solid')])
 style.layout('RoundedButton.TButton', [('Button.button', {'children': [('Button.focus', {'children': [('Button.padding', {'children': [('Button.label', {'side': 'top', 'sticky': 'nswe'})]})]})]})])
 
+# adds, removes and displays tickers
+btn_add_ticker = ttk.Button(button_frame, text="Add Ticker", command=add_ticker, style="RoundedButton.TButton")
+btn_add_ticker.grid(row=0, column=0, padx=10, pady=10)
+
+btn_view_tickers = ttk.Button(button_frame, text="View Selected Tickers", command=view_tickers, style="RoundedButton.TButton")
+btn_view_tickers.grid(row=0, column=1, padx=10, pady=10)
+
+btn_clear_tickers = ttk.Button(button_frame, text="Clear Tickers", command=clear_tickers, style="RoundedButton.TButton")
+btn_clear_tickers.grid(row=0, column=2, padx=10, pady=10)
+
 # places the buttons that display the graphs within the grid
 btn_3mo = ttk.Button(button_frame, text="Show 3 Month", command=lambda: show_graph('3mo'), style="RoundedButton.TButton")
 btn_3mo.grid(row=1, column=0, padx=10, pady=10)
